@@ -13,15 +13,12 @@ session_start();
 $client = new TwitterOAuth($consumer_key, $consumer_secret);
 
 // リクエスト・トークンを取得してセッション変数に保存
-$token = $client->getRequestToken($app_addr);
+$token = $client -> getRequestToken($app_addr);
 $_SESSION['request_token'] = $token['oauth_token'];
 $_SESSION['request_token_secret'] = $token['oauth_token_secret'];
 
 // 認証ページのアドレス
 $auth_addr = $client->authorizeURL() . '?oauth_token=' . $token['oauth_token'];
-
->
-<!DOCTYPE html>
-<html>
-    <a href=<?php echo($auth_addr);?>>this link</a>
-</html>
+echo ($token['oauth_token']);
+echo ($token['oauth_token_secret']);
+?>
