@@ -1,7 +1,4 @@
-<!DOCTYPE html>
-<html>
-    <body>
-        <?php
+<?php
             require_once('src/twitterOauth.php');
             // アプリケーションのコンシューマ・キー
             $consumer_key = 'qCYf3bD5AhxXcu8C3jxi4UwWd';
@@ -23,6 +20,10 @@
             // 認証ページのアドレス
             $auth_addr = $client->authorizeURL() . '?oauth_token=' . $token['oauth_token'];
             echo $auth_addr;
-        ?>
+?>
+<!DOCTYPE html>
+<html>
+    <body>
+        taso
     </body>
 </html>
