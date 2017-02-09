@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<!DOCTYPE html>
+<html>
+    <body>
+        <?php
+            require_once('src/twitterOauth.php');
+            $consumer_key = 'qCYf3bD5AhxXcu8C3jxi4UwWd';
+            $consumer_secret = 'OVnQY1ODIVUJWuGj0o2xn8JttfCzxmcHo7V2nCWFZysatY45Hl';
+            $app_addr = 'https://kichihei6.github.io';
+            session_start($consumer_key, $consumer_secret,$_SESSION['request_token'], $_SESSION['request_token_secret']);
+            // アクセス・トークンを取得
+            $token = $client->getAccessToken($_GET['oauth_verifier']);
+            if (empty($token['oauth_token'])) {
+                echo 'Error has been occured.';
+            }
+            $_SESSION['access_token'] = $token['oauth_token'];
+            $_SESSION['access_token_secret'] = $token['oauth_token_secret'];
+            echo $token['access_token'];
+            echo $token['oauth_token_secret'];
+        ?>
+    </body>
+</html>
